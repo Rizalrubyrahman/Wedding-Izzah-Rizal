@@ -1,295 +1,453 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#541A63">
-<title>The Wedding of Izzah & Rizal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#541A63">
+  <title>The Wedding of Izzah & Rizal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,500&family=Nunito+Sans:wght@300;400;600&family=Pinyon+Script&display=swap"
+    rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,500&family=Nunito+Sans:wght@300;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/style.css">
 </head>
 
 <body class="lock">
 
-<!-- COVER -->
-<div id="cover">
-  <p class="script t1" style="color: #fff;">The Wedding Of</p>
-  <div class="arch" role="img" aria-label="Foto pasangan"></div>
-  <h2 class="names">Izzah &amp; Rizal</h2>
+  <!-- COVER -->
+  <div id="cover">
+    <p class="script t1 animasiIn" style="--i:0;color: #fff;">The Wedding Of</p>
+    <div class="arch animasiIn" style="--i:1" role="img" aria-label="Foto pasangan"></div>
+    <h2 class="names animasiUp" style="--i:2">Izzah &amp; Rizal</h2>
 
-  <div class="to">
-    <small style="margin:0">Kepada Yth.<br>Bapak/Ibu/Saudara/i</small>
-    <b id="guest">Tamu Undangan</b>
+    <div class="to">
+      <small class="animasiUp" style="margin:0;--i:3">Kepada Yth.<br>Bapak/Ibu/Saudara/i</small>
+      <b id="guest" class="animasiUp" style="--i:4">Tamu Undangan</b>
+    </div>
+
+    <small class="animasiUp" style="--i:5">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</small>
+    <button class="btn btn-sm animasiIn"
+      style="--i:6;color:#fff;border-radius: 50px;background-image: linear-gradient(75deg, #D6B788 0%, #997949 100%);"
+      id="openBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-envelope-open" viewBox="0 0 16 16">
+        <path
+          d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882zM15 7.383l-4.778 2.867L15 13.117zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765z" />
+      </svg> Buka Undangan</button>
   </div>
 
-  <small>*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</small>
-  <button class="btn btn-sm" style="color:#fff;border-radius: 50px;background-image: linear-gradient(75deg, #D6B788 0%, #997949 100%);" id="openBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-open" viewBox="0 0 16 16">
-  <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882zM15 7.383l-4.778 2.867L15 13.117zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765z"/>
-</svg> Buka Undangan</button>
-</div>
+  <main class="app">
 
-<main class="app">
+    <!-- HERO -->
+    <section id="hero">
+      <video id="vid" muted playsinline preload="auto"></video>
 
-  <!-- HERO -->
-  <section id="hero">
-    <video id="vid" muted playsinline preload="auto"></video>
+      <div class="heroText" id="heroText">
+        <p class="script t animasiIn" style="color: #fff;--i:0">The Wedding Of</p>
+        <h2 class="n animasiIn" style="--i:1">Izzah<span class="amp" style="color: #fff;">&</span>Rizal</h2>
+        <p class="d animasiIn" style="--i:2">Sabtu, 28 November 2026</p>
+        <div class="mouse animasiIn" style="--i:3" aria-label="Gulir ke bawah"></div>
+      </div>
+    </section>
 
-    <div class="heroText" id="heroText">
-      <p class="script t" style="color: #fff;">The Wedding Of</p>
-      <h2 class="n">Izzah<span class="amp" style="color: #fff;">&</span>Rizal</h2>
-      <p class="d">Sabtu, 28 November 2026</p>
-      <div class="mouse" aria-label="Gulir ke bawah"></div>
-    </div>
-  </section>
+    <!-- AYAT -->
+    <section class="ayat purple-bg" style="padding:25px">
+      <div class="content-ayat" style="border-radius: 10px;">
+        <div class="ir">
+          <h2 class="animasiLeft" style="--i:0">I</h2>
+          <img style="width: 25px;margin-top: 30px;"
+            src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-.png" alt="">
+          <h2 class="animasiRight" style="--i:0;margin-top: 60px;">R</h2>
+        </div>
 
-  <!-- AYAT -->
-  <section class="ayat purple-bg" style="padding:25px">
-    <div class="content-ayat"style="border-radius: 10px;">
-<div class="ir rv rv-z" >
-      <h2>I</h2>
-      <img style="width: 25px;margin-top: 30px;" src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-.png" alt="">
-      <h2 style="margin-top: 60px;">R</h2>
-    </div>
+        <p class="q animasiIn" style="font-size: 11pt;font-weight: 900;--i:1;">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+          sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan
+          sayang."
+        </p>
 
-    <p class="q rv rv-up" style="font-size: 9pt;font-weight: 900;">
-      "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
-    </p>
+        <p class="gold animasiIn" style="color:#fff;padding-bottom: 90px; font-size: 11pt;--i:1;">Q.S Ar-Rum : 21</p>
+      </div>
+    </section>
 
-    <p class="rv rv-up gold" style="color:#fff;padding-bottom: 90px;">Q.S Ar-Rum : 21</p>
-    </div>
-    
-  </section>
+    <!-- MEMPELAI -->
+    <section class="brige" style="padding-top:20px">
+      <div class="content-brige purple-bg"
+        style="border:1px solid #D6B788;padding:25px;border-radius: 180px;padding-bottom: 50px;margin-top: 40px;">
+        <img class="icon-top animasiIn" style="--i:0"
+          src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Icon.png" alt="">
 
-  <!-- MEMPELAI -->
-  <section class="brige" style="padding-top:20px">
-    <div class="content-brige purple-bg" style="padding:25px;border-radius: 180px;">
-      <img class="icon-top rv rv-z" src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Icon.png" alt="">
+        <h2 class="sec-title script animasiDown" style="color: #fff;--i:1">Bride & Groom</h2>
 
-    <h2 class="sec-title script rv rv-up" style="color: #fff;">Bride & Groom</h2>
+        <p class="salam animasiUp" style="--i:2">
+          <b>Assalamu’alaikum Warahmatullahi Wabarakatuh</b>
+        </p>
+        <p class="salam animasiUp" style="font-size: 7.5pt;font-weight: 900;--i:2">
+          Maha Suci Allah yang telah menciptakan makhluk-Nya <br> berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah
+          mengiringi pernikahan kami.
+        </p>
 
-    <p class="salam rv rv-up">
-      <b>Assalamu’alaikum Warahmatullahi Wabarakatuh</b>
-    </p>
-    <p class="salam rv rv-up" style="font-size: 7.5pt;font-weight: 900;">
-      Maha Suci Allah yang telah menciptakan makhluk-Nya <br> berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
-    </p>
-    <div class="person rv rv-up">
-      <h2 class="nick">Izzah</h2>
-      <h3>Nur Izzah Jundiah</h3>
-      <p>Putri Ketiga dari<br>Bapak Nama Ayah<br>dan Ibu Nama Ibu</p>
-      <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-    </div>
+        <div class="person">
+          <h2 class="nick script animasiUp" style="--i:0">Izzah</h2>
+          <h2 class="animasiUp" style="--i:0">Nur Izzah Jundiah</h2>
+          <p class="animasiUp" style="font-size: 9pt;--i:0">
+            Putri Ketiga dari<br>Bapak Dedy Sugandy<br>Suprihati Wahyuningsih
+          </p>
+          <a class="btn animasiUp"
+            style="--i:0;font-size: 9pt; padding:4px 17px;color:#fff;border-radius: 50px;background-image: linear-gradient(75deg, #D6B788 0%, #997949 100%);"
+            href="https://www.instagram.com/izzahjundiah/" target="_blank" rel="noopener"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+            </svg> Nur izzah Jundiah</a>
+        </div>
+        <div style="height: 20px;">&nbsp;</div>
 
-    <img class="orn rv rv-z" src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-.png" alt="">
+        <img style="width: 60px;--i:0" class="orn animasiIn"
+          src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-.png" alt="">
+        <div style="height: 20px;">&nbsp;</div>
 
-    <div class="person rv rv-up">
-      <h2 class="nick">Rizal</h2>
-      <h3>Rizal Ruby Rahman</h3>
-      <p>Putra Kedua dari<br>Bapak Nama Ayah<br>dan Ibu Nama Ibu</p>
-    </div>
-    </div>
-  </section>
+        <div class="person">
+          <h2 class="nick script animasiUp" style="--i:0">Rizal</h2>
+          <h3 class="animasiUp" style="--i:0">Rizal Ruby Rahman</h3>
+          <p class="animasiUp" style="font-size: 9pt;--i:0">
+            Putra Kedua dari<br>Bapak Heriyanto<br>dan Ibu MegaFatmasari
+          </p>
+        </div>
+        <div style="height: 60px;">&nbsp;</div>
+      </div>
+    </section>
 
-  <!-- SAVE THE DATE -->
-  <section class="purple-bg" style="padding-bottom:150px">
-    <h2 class="sec-title rv rv-up">Save The Date</h2>
+    <!-- SAVE THE DATE -->
+    <section class="purple-bg" style="padding-bottom:60px">
+      <h2 class="sec-title script animasiUp" style="--i:0;color: #fff;font-size: 38pt;margin-top: 20px;">Save The Date</h2>
 
-    <div class="count rv rv-up">
-      <div><b id="d">0</b><span>Hari</span></div>
-      <div><b id="h">0</b><span>Jam</span></div>
-      <div><b id="m">0</b><span>Menit</span></div>
-      <div><b id="s">0</b><span>Detik</span></div>
-    </div>
-
-    <a class="btn" id="cal" href="#">Simpan Tanggal</a>
-
-    <img class="deco l" src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
-    <img class="deco r" src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
-  </section>
-
-  <!-- ACARA -->
-  <section class="event-bg acara">
-    <div class="box rv rv-up">
-      <h2>Akad Nikah</h2>
-      <hr>
-
-      <p class="hari">Sabtu</p>
-      <p class="tgl">28</p>
-      <p class="hari">November 2026</p>
-
-      <p style="margin-top:8px">08.00 WIB - Selesai</p>
-
-      <h4>Lokasi Acara</h4>
-      <p>Aula Masjid At-Taqwa Universitas Pancasila, Jakarta</p>
-
-      <p style="margin-top:14px">
-        <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=Universitas+Pancasila+Jakarta">Google Maps</a>
-      </p>
-    </div>
-
-    <div class="box rv rv-up" style="margin-top:0">
-      <h2>Resepsi</h2>
-      <hr>
-
-      <p class="hari">Sabtu</p>
-      <p class="tgl">28</p>
-      <p class="hari">November 2026</p>
-
-      <p style="margin-top:8px">11.00 - 13.00 WIB</p>
-
-      <h4>Lokasi Acara</h4>
-      <p>Aula Masjid At-Taqwa Universitas Pancasila, Jakarta</p>
-
-      <p style="margin-top:14px">
-        <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=Universitas+Pancasila+Jakarta">Google Maps</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- LOVE STORY -->
-  <section class="purple-bg">
-    <h2 class="sec-title rv rv-up">Love Story</h2>
-
-    <div class="story rv rv-up">
-      <div>
-        <h3>2018: Awal Pertemuan</h3>
-        <p>Ganti dengan cerita singkat bagaimana kalian pertama kali bertemu.</p>
+      <div class="count animasiUp" style="--i:0">
+        <div style="border-color:#fff"><b id="d">0</b><span>Hari</span></div>
+        <div style="border-color:#fff"><b id="h">0</b><span>Jam</span></div>
+        <div style="border-color:#fff"><b id="m">0</b><span>Menit</span></div>
+        <div style="border-color:#fff"><b id="s">0</b><span>Detik</span></div>
       </div>
 
-      <div>
-        <h3>2019: Pertemuan Pertama</h3>
-        <p>Ganti dengan cerita kalian bertemu langsung dan mulai saling mengenal.</p>
-      </div>
+      <a style="--i:0;font-size: 9pt; padding:4px 17px;color:black;border-radius: 50px;background-color: #fff;"
+        class="btn animasiUp" id="cal" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+          fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+          <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+          <path
+            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+        </svg> Simpan Tanggal</a>
 
-      <div>
-        <h3>2026: Awal yang Baru</h3>
-        <p>Ganti dengan cerita lamaran dan langkah menuju hari bahagia.</p>
-      </div>
-    </div>
-  </section>
+      <img class="deco l animasiIn" style="--i:0;width:110px"
+        src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
+      <img class="deco r animasiIn" style="top:50px;width:110px;--i:0"
+        src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
+    </section>
 
-  <!-- WEDDING GIFT -->
-  <section class="white-bg">
-    <h2 class="sec-title rv rv-up">Wedding Gift</h2>
+    <!-- ACARA -->
+    <section class="event-bg acara">
+      <div class="box borderimg animasiUp"
+        style="margin-top: 2px;border-radius: 180px;--i:0;padding-bottom: 50px;background:var(--img-bg-acara) center/cover; opacity:1;padding:20px">
+        <div class="purple-bg" style="border-radius: 180px;padding:25px">
+          <div style="height: 20px;">&nbsp;</div>
 
-    <p class="rv rv-up">
-      Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
-    </p>
+          <h2 style="font-size: 28pt;margin-top: 20px;">Akad Nikah</h2>
+          <div style="height: 20px;">&nbsp;</div>
 
-    <div class="bank rv rv-up">
-      <div>
-        <img class="logo" src="https://the.invisimple.id/wp-content/uploads/2024/10/bni.png" alt="BNI">
-        <small>No Rekening</small>
-        <b>0000000000</b>
-        <small>Atas Nama</small><br>
-        <span>Nama Pemilik</span>
-      </div>
+          <div style="height:1px;width:200px;background-color: #fff;margin:auto">&nbsp;</div>
+          <div style="height: 20px;">&nbsp;</div>
 
-      <div>
-        <img class="chip" src="https://the.invisimple.id/wp-content/uploads/2024/10/chip-ilustration.png" alt="">
-        <button class="btn" data-copy="0000000000">Salin</button>
-      </div>
-    </div>
+          <p class="hari script" style="font-size: 28pt;color:#fff">Sabtu</p>
+          <p class="tgl">28</p>
+          <p class="hari" style="font-size: 18pt;color:#fff">November 2026</p>
 
-    <div class="bank rv rv-up">
-      <div>
-        <img class="logo" src="https://the.invisimple.id/wp-content/uploads/2024/10/bca.png" alt="BCA">
-        <small>No Rekening</small>
-        <b>0000000000</b>
-        <small>Atas Nama</small><br>
-        <span>Nama Pemilik</span>
-      </div>
+          <p style="margin-top:8px;font-size: 18pt;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+              <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+            </svg> 08:00 WIB - 10:00 WIB</p>
+          <div style="height: 10px;">&nbsp;</div>
 
-      <div>
-        <img class="chip" src="https://the.invisimple.id/wp-content/uploads/2024/10/chip-ilustration.png" alt="">
-        <button class="btn" data-copy="0000000000">Salin</button>
-      </div>
-    </div>
+          <h4 style="font-size: 12pt;">Lokasi Acara</h4>
+          <div style="height: 10px;">&nbsp;</div>
 
-    <div class="bank rv rv-up">
-      <div>
-        <b style="font-size:1.6rem">Kado</b>
-        <small>Nama Penerima</small><br>
-        <span>Nama Penerima</span><br>
-        <small>Alamat Penerima</small><br>
-        <span id="alamat">Tulis alamat lengkap penerima kado di sini.</span>
-      </div>
+          <p style="font-size: 12pt;">Aula Masjid At-Taqwa Universitas Pancasila, Jakarta</p>
 
-      <div>
-        <svg class="gift-ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
-          <rect x="3" y="9" width="18" height="12" rx="1"/>
-          <path d="M12 9v12M3 13h18M12 9C9 9 8 4 11 4c2 0 1 5 1 5zm0 0c3 0 4-5 1-5-2 0-1 5-1 5z"/>
-        </svg>
-        <button class="btn" id="copyAlamat">Salin</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- WISHES -->
-  <section class="white-bg" style="padding-top:0">
-    <h2 class="sec-title rv rv-up">Wishes</h2>
-    <p>Berikan doa dan ucapan terbaik untuk kami.</p>
-
-    <form id="form">
-      <div>
-        <label for="nama">Nama</label>
-        <input id="nama" required maxlength="40">
-      </div>
-
-      <div>
-        <label for="pesan">Ucapan</label>
-        <textarea id="pesan" rows="3" required minlength="2" maxlength="300"></textarea>
-      </div>
-
-      <div>
-        <label>Konfirmasi Kehadiran</label>
-        <div class="att">
-          <button type="button" data-v="Hadir">Hadir</button>
-          <button type="button" data-v="Tidak Hadir">Tidak Hadir</button>
+          <p style="margin-top:14px">
+            <a class="btn" target="_blank" rel="noopener"
+              style="font-size: 9pt; padding:4px 17px;color:#fff;border-radius: 50px;background-image: linear-gradient(75deg, #D6B788 0%, #997949 100%);"
+              href="https://maps.google.com/?q=Universitas+Pancasila+Jakarta"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg> Google Maps</a>
+          </p>
+          <div style="height: 30px;">&nbsp;</div>
         </div>
       </div>
 
-      <div id="guestWrap">
-        <label for="jml">Jumlah Tamu</label>
-        <select id="jml">
-          <option>1 Orang</option>
-          <option>2 Orang</option>
-        </select>
+      <div class="box borderimg animasiUp"
+        style="margin-top: 30px;border-radius: 180px;--i:0;padding-bottom: 50px;background:var(--img-bg-acara) center/cover; opacity:1;padding:20px">
+        <div class="purple-bg" style="border-radius: 180px;padding:25px">
+          <div style="height: 20px;">&nbsp;</div>
+          <h2>Resepsi</h2>
+          <div style="height: 20px;">&nbsp;</div>
+
+          <div style="height:1px;width:200px;background-color: #fff;margin:auto">&nbsp;</div>
+          <div style="height: 20px;">&nbsp;</div>
+
+          <p class="hari script" style="font-size: 28pt;color:#fff">Sabtu</p>
+          <p class="tgl">28</p>
+          <p class="hari" style="font-size: 18pt;color:#fff">November 2026</p>
+
+          <p style="margin-top:8px;font-size: 18pt;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+              <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+            </svg> 11:00 WIB - 13:00 WIB</p>
+          <div style="height: 10px;">&nbsp;</div>
+
+          <h4 style="font-size: 12pt;">Lokasi Acara</h4>
+          <div style="height: 10px;">&nbsp;</div>
+
+          <p style="font-size: 12pt;">Aula Masjid At-Taqwa Universitas Pancasila, Jakarta</p>
+
+          <p style="margin-top:14px">
+            <a class="btn" target="_blank" rel="noopener"
+              style="font-size: 9pt; padding:4px 17px;color:#fff;border-radius: 50px;background-image: linear-gradient(75deg, #D6B788 0%, #997949 100%);"
+              href="https://maps.google.com/?q=Universitas+Pancasila+Jakarta"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg> Google Maps</a>
+          </p>
+          <div style="height: 30px;">&nbsp;</div>
+        </div>
       </div>
+    </section>
 
-      <button class="btn" type="submit" style="justify-content:center;background:var(--ungu);color:#fff">Kirim</button>
-    </form>
+    <!-- LOVE STORY -->
+    <section class="purple-bg" style="padding-top:20px !important;">
+      <h2 class="sec-title  animasiUp script" style="color: #fff;font-size: 38pt;margin-top: 20px;--i:0">Love Story</h2>
 
-    <div class="wishes" id="wishes"></div>
+      <div class="story ">
+        <div class="animasiRight" style="--i:0">
+          <h3>2018: Awal Pertemuan</h3>
+          <p>Takdir Allah mempertemukan kami lewat sebuah permainan online. Awalnya hanya saling mengenal, tanpa tahu
+            bahwa itu adalah awal dari segalanya. Hari demi hari kami semakin sering bermain bersama, hingga Rizal
+            memberanikan diri meminta Instagram Izzah agar bisa mengenalnya lebih dekat. Dari pesan-pesan sederhana di
+            DM, percakapan kami tumbuh hangat dan berpindah ke Line, tempat cerita kami mulai ditulis.</p>
+        </div>
 
-    <!-- Unduh data tamu (butuh kunci, lihat download.php) -->
-    <div style="margin-top:22px">
-      <button class="btn" id="dlExcel" type="button">Download Excel</button>
-    </div>
-  </section>
+               <div class="animasiRight" style="--i:0">
 
-  <!-- PENUTUP -->
-  <section class="white-bg thanks" style="padding-top:20px">
-    <h2 class="sec-title">Terima Kasih</h2>
+          <h3>2019: Pertemuan Pertama</h3>
+          <p>Setelah lama hanya berjumpa lewat layar, akhirnya kami bertemu. Saat Izzah berkunjung ke Kebun Raya Bogor
+            bersama temannya, Rizal datang menghampiri. Hari itu terasa begitu istimewa. Tak lama setelahnya, Rizal
+            mengungkapkan perasaannya. Tanpa status pacaran, kami memilih saling menjaga dan berkomitmen dengan
+            ketulusan hati.</p>
+        </div>
 
-    <p>
-      Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami.
-      <br><br>
-      <b>Wassalamu’alaikum warahmatullahi wabarakatuh</b>
-    </p>
+                <div class="animasiRight" style="--i:0">
 
-    <p style="margin-top:18px">Kami Yang Berbahagia</p>
-    <h2 class="big">Izzah &amp; Rizal</h2>
-  </section>
+          <h3>2026: Awal yang Baru</h3>
+          <p>Tahun demi tahun kami lalui bersama, melewati tawa, rindu, dan doa yang tak pernah putus. Sampai pada 15
+            Agustus 2026, Rizal datang bersama keluarganya untuk melamar Izzah. Dari sebuah permainan, Allah
+            mempertemukan, dan kini menyatukan kami dalam ikatan janji suci, menuju ibadah terpanjang kepada-Nya.</p>
+        </div>
+      </div>
+    </section>
 
-  <footer>Template undangan dibuat dengan HTML, CSS &amp; JS.</footer>
-</main>
+    <!-- WEDDING GIFT -->
+    <section class="brige" style="padding:30px;">
+      <div class="white-bg" style="border:1px solid #D6B788; border-radius: 20px;padding:30px 20px;">
+        <h2 class="sec-title animasiUp script" style="color: #6b2a86;font-size: 38pt;margin-top: 20px;--i:0">Wedding Gift</h2>
 
-<button id="music" aria-label="Putar/jeda musik">♪</button>
-<audio id="audio" loop></audio>
+        <p class="animasiUp" style="font-size: 10pt;font-weight: 900; color:#6b2a86;--i:0">
+          Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih,
+          Anda dapat memberi melalui dibawah ini.
+        </p>
 
-<script src="Javascript/script.js" defer></script>
+        <div class="bank animasiUp" style="--i:0">
+          <div>
+            <img class="logo" src="https://the.invisimple.id/wp-content/uploads/2024/10/bni.png" alt="BNI">
+            <span style="font-size: 11pt;">No Rekening</span>
+            <span style="font-weight: 800;font-size: 12pt;">1414811978</span>
+            <span style="font-size: 11pt;">Atas Nama</span>
+            <span style="font-style: italic;font-weight: 800;font-size: 12pt;">Nur Izzah Jundiah</span>
+          </div>
+
+          <div>
+            <img class="chip" src="https://the.invisimple.id/wp-content/uploads/2024/10/chip-ilustration.png" alt="">
+            <button style="background-color:#fff;border-color:#D6B788;color:#D6B788; padding:2px 10px; border-radius:50px" class="btn" data-copy="1414811978"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg> Salin</button>
+          </div>
+        </div>
+
+        <div class="bank animasiUp" style="--i:0">
+          <div>
+            <img class="logo" src="https://the.invisimple.id/wp-content/uploads/2024/10/bca.png" alt="BCA">
+            <span style="font-size: 11pt;">No Rekening</span>
+            <span style="font-weight: 800;font-size: 12pt;">3780579195</span>
+            <span style="font-size: 11pt;">Atas Nama</span>
+            <span style="font-style: italic;font-weight: 800;font-size: 12pt;">Rizal Ruby Rahman</span>
+          </div>
+
+          <div>
+            <img class="chip" src="https://the.invisimple.id/wp-content/uploads/2024/10/chip-ilustration.png" alt="">
+            <button style="background-color:#fff;border-color:#D6B788;color:#D6B788; padding:2px 10px; border-radius:50px" class="btn" data-copy="3780579195"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg> Salin</button>
+          </div>
+        </div>
+
+        <div class="bank animasiUp" style="--i:0">
+          <div>
+            <h2 style="color: #fff;">Kado</h2>
+            <br>
+            <span style="font-size: 11pt;">Atas Nama</span>
+            <span style="font-style: italic;font-weight: 800;font-size: 12pt;">Nur Izzah Jundiah</span>
+            <span style="font-size: 11pt;">Alamat Penerima</span>
+            <span id="alamat" style="font-size: 9pt;font-weight: 800;">Kost Dedy, Jl. Darussalam II No.45, RT. 004 RW. 019, Kel. Srengseng Sawah, Kec. Jagakarsa, Kota Jakarta Selatan, 12640.</span>
+          </div>
+
+          <div>
+            <svg class="gift-ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+              <rect x="3" y="9" width="18" height="12" rx="1" />
+              <path d="M12 9v12M3 13h18M12 9C9 9 8 4 11 4c2 0 1 5 1 5zm0 0c3 0 4-5 1-5-2 0-1 5-1 5z" />
+            </svg>
+            <button style="background-color:#fff;border-color:#D6B788;color:#D6B788; padding:2px 10px; border-radius:50px" class="btn" id="copyAlamat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg> Salin</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WISHES -->
+    <section class="white-bg" style="padding-top:30px">
+      <h2 class="sec-title animasiUp script" style="color: #6b2a86;font-size: 38pt;--i:0 ">Wishes</h2>
+
+      <p class="animasiUp" style="font-size: 10pt;font-weight: 900; color:#6b2a86;--i:0">Berikan doa dan ucapan terbaik untuk kami.</p>
+
+      <form id="form" class="animasiUp" style="--i:0">
+        <div>
+          <label for="nama">Nama</label>
+          <input id="nama" required maxlength="40">
+        </div>
+
+        <div>
+          <label for="pesan">Ucapan</label>
+          <textarea id="pesan" rows="3" required minlength="2" maxlength="300"></textarea>
+        </div>
+
+        <div>
+          <label>Konfirmasi Kehadiran</label>
+          <div class="att">
+            <button style="color: rgb(153, 121, 73);border-color: rgb(153, 121, 73);border-radius: 50px;" type="button" data-v="Hadir"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+</svg> Hadir</button>
+            <button type="button" style="color: rgb(153, 121, 73);border-color: rgb(153, 121, 73);border-radius: 50px;" data-v="Tidak Hadir"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+</svg> Tidak Hadir</button>
+          </div>
+        </div>
+
+        <div id="guestWrap">
+          <label for="jml">Jumlah Tamu</label>
+          <select id="jml">
+            <option>1 Orang</option>
+            <option>2 Orang</option>
+          </select>
+        </div>
+
+        <button class="btn" type="submit"
+          style="justify-content:center;background:rgb(153, 121, 73);color:#fff;border-radius: 50px;">Kirim</button>
+      </form>
+
+      <div class="wishes" id="wishes"></div>
+
+      <!-- Unduh data tamu (butuh kunci, lihat download.php) -->
+
+    </section>
+
+    <!-- PENUTUP -->
+    <section class="white-bg thanks" style="padding-top:20px">
+      <h2 class="sec-title animasiUp script" style="color: #6b2a86;font-size: 38pt;margin-top: 20px;--i:0">Terima Kasih</h2>
+
+      <p class="animasiUp" style="font-size: 10pt;font-weight: 900; color:#6b2a86;--i:0 ">
+        Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan
+        do’a restu kepada kami.
+        <br><br>
+        <b>Wassalamu’alaikum warahmatullahi wabarakatuh</b>
+      </p>
+
+      <p class="animasiUp" style="font-size: 10pt;font-weight: 900; color:#6b2a86;margin-top: 18px;--i:0">Kami Yang Berbahagia</p>
+      <h2 class="big animasiUp" style="--i:0">Izzah &amp; Rizal</h2>
+    </section>
+
+    <footer>Copyright © 2026 Rizal Ruby Rahman.</footer>
+  </main>
+
+  <button id="music" aria-label="Putar/jeda musik">♪</button>
+  <audio id="audio" loop></audio>
+
+  <script src="Javascript/script.js" defer></script>
+  <script>
+/* ===== Animasi muncul setiap kali elemen terlihat (berulang) ===== */
+function initAnimation() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio >= 0.2) {
+        e.target.classList.add('show');      // masuk layar: jalankan animasi
+      } else if (!e.isIntersecting) {
+        e.target.classList.remove('show');   // keluar layar penuh: reset, siap diulang
+      }
+    });
+  }, { threshold: [0, 0.2] });
+
+  document.querySelectorAll('.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown')
+    .forEach(el => obs.observe(el));
+}
+document.addEventListener('DOMContentLoaded', initAnimation);
+
+    /* ===== Garis Love Story merambat ===== */
+    (function () {
+      const story = document.querySelector('.story');
+      if (!story) return;
+      const cards = [...story.children];
+
+      function update() {
+        // titik terakhir = tengah ikon hati pada kartu terakhir
+        const end = cards[cards.length - 1].offsetTop + 16;
+        story.style.setProperty('--end', end + 'px');
+
+        const rect = story.getBoundingClientRect();
+        const ref = window.innerHeight * 0.6;
+        const p = Math.max(0, Math.min(end, ref - rect.top)); // dibatasi sampai titik terakhir
+        story.style.setProperty('--p', p + 'px');
+
+        cards.forEach(card => {
+          card.classList.toggle('on', p >= card.offsetTop + 16);
+        });
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      window.addEventListener('load', update);
+      update();
+    })();
+  </script>
 </body>
+
 </html>

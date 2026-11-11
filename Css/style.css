@@ -2,130 +2,908 @@
    [GANTI GAMBAR / ASET] Semua alamat gambar latar ada di sini.
    Ganti isi url('...') dengan file milikmu (mis. foto/cover-bg.jpg)
    ============================================================ */
-:root{
-  /* #1 latar cover & latar bagian ayat */
-  --img-bg-overlay:url('https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-BG-Overlay.jpeg');
-  /* #2 gambar pasangan di bingkai cover */
-  --img-pasangan:url('../bg-pasangan.png');
-  /* #3 latar bagian Akad Nikah / Resepsi */
-  --img-bg-acara:url('https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Background.jpeg');
-  /* #4 latar kartu rekening */
-  --img-bg-card:url('https://the.invisimple.id/wp-content/uploads/2024/10/bg-card-01.jpg');
-
-  --ungu:#541A63;--ungu2:#9138A8;--ungu3:#8C00B1;--emas:#D7BB83;--tombol:#D6B788;
-  --serif:'Cormorant Infant',Georgia,serif;--script:'Pinyon Script',cursive;--sans:'Nunito Sans',system-ui,sans-serif;
+.alex-brush-regular {
+    font-family: "Alex Brush", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);font-weight:300;color:#fff;background:#2a0e33;line-height:1.7}
-body.lock{overflow:hidden}
-.app{max-width:480px;margin:0 auto;position:relative;overflow:hidden;overflow:clip;background:var(--ungu)}
-section{position:relative;padding:70px 28px;text-align:center}
-h2{font-family:var(--serif);font-weight:500;line-height:1.15}
-.sec-title{font-size:2.3rem;margin-bottom:14px}
-.script{font-family:var(--script);color:var(--emas)}
-.gold{color:var(--emas)}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--tombol);color:#3b1457;border:0;border-radius:6px;padding:7px 22px;font:600 .9rem var(--sans);cursor:pointer;text-decoration:none;transition:transform .2s}
-.btn:hover{transform:scale(.96)}
-.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--emas);outline-offset:3px}
-.purple-bg{background:linear-gradient(rgba(84,26,99,.9),rgba(84,26,99,.9)),var(--img-bg-overlay) center/cover}
-.event-bg{background:linear-gradient(rgba(84,26,99,.88),rgba(84,26,99,.88)),var(--img-bg-acara) center/cover}
-.white-bg{background:#faf7fb;color:#333}
-.white-bg h2{color:#333}
+
+:root {
+    /* #1 latar cover & latar bagian ayat */
+    --img-bg-overlay: url('https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-BG-Overlay.jpeg');
+    /* #2 gambar pasangan di bingkai cover */
+    --img-pasangan: url('../bg-pasangan.png');
+    /* #3 latar bagian Akad Nikah / Resepsi */
+    --img-bg-acara: url('https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Background.jpeg');
+    /* #4 latar kartu rekening */
+    --img-bg-card: url('https://the.invisimple.id/wp-content/uploads/2024/10/bg-card-01.jpg');
+
+    --ungu: #541A63;
+    --ungu2: #9138A8;
+    --ungu3: #8C00B1;
+    --emas: #D7BB83;
+    --tombol: #D6B788;
+    --serif: 'Cormorant Infant', Georgia, serif;
+    --script: 'Alex Brush', cursive;
+    --sans: 'Nunito Sans', system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: #fff;
+    background: #2a0e33;
+    line-height: 1.7
+}
+
+body.lock {
+    overflow: hidden
+}
+
+.app {
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    overflow: clip;
+    background: var(--ungu)
+}
+
+section {
+    position: relative;
+    padding: 70px 28px;
+    text-align: center
+}
+
+h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.15
+}
+
+.sec-title {
+    font-size: 2.3rem;
+    margin-bottom: 14px
+}
+
+.script {
+    font-family: var(--script);
+    color: var(--emas)
+}
+
+.gold {
+    color: var(--emas)
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tombol);
+    color: #3b1457;
+    border: 0;
+    border-radius: 6px;
+    padding: 7px 22px;
+    font: 600 .9rem var(--sans);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .2s
+}
+
+.btn:hover {
+    transform: scale(.96)
+}
+
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--emas);
+    outline-offset: 3px
+}
+
+.purple-bg {
+    background: linear-gradient(rgba(84, 26, 99, .9), rgba(84, 26, 99, .9)), var(--img-bg-overlay) center/cover
+}
+
+.event-bg {
+    background: linear-gradient(rgba(84, 26, 99, .88), rgba(84, 26, 99, .88)), var(--img-bg-acara) center/cover
+}
+
+.white-bg {
+    background: #faf7fb;
+    color: #333
+}
+
+.white-bg h2 {
+    color: #333
+}
 
 /* ===== COVER ===== */
-#cover{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;
-  background:linear-gradient(rgba(84,26,99,.11),rgba(84, 26, 99, .9)),var(--img-bg-overlay) center/cover;transition:transform 2.5s cubic-bezier(.65,0,.35,1)}
-#cover.open{transform:translateY(-100%)}
-#cover .t1{font-size:1.9rem;margin-top: 0px;}
-.arch{width:min(250px,60vw);aspect-ratio:3/4;margin-top:-40px;background:var(--img-pasangan) center/contain no-repeat}
-#cover h2.names{font-size:2.3rem}
-#cover .to{margin:7px 0 6px}
-#cover .to b{display:block;font:500 1.6rem var(--serif);color:#fff}
-#cover small{display:block;max-width:60ch;margin:0 auto 18px;font-size:.7rem}
+#cover {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    background: linear-gradient(rgba(84, 26, 99, .11), rgba(84, 26, 99, .9)), var(--img-bg-overlay) center/cover;
+    transition: transform 2.5s cubic-bezier(.65, 0, .35, 1)
+}
 
-#hero{position:sticky;top:0;z-index:0;height:100vh;height:100svh;min-height:560px;padding:0;background:#2a0e33;}
-.app>section:not(#hero),.app>footer{position:relative;z-index:1}
-#vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.heroText{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:scale(.92);transition:opacity 1.6s,transform 1.6s;pointer-events:none}
-.heroText.in{opacity:1;transform:none}
-.heroText h2.n{font-size:3.4rem;color:#fff;line-height:1.05;text-shadow:0 2px 16px rgba(60,10,80,.75)}
-.heroText .amp{display:block;font:italic 2rem var(--serif);color:var(--emas)}
-.heroText .t{font-size:1.7rem;text-shadow:0 2px 12px rgba(60,10,80,.8)}
-.heroText p.d{margin-top:12px;text-shadow:0 2px 12px rgba(60,10,80,.8)}
-.mouse{margin-top:22px;width:22px;height:36px;border:2px solid #fff;border-radius:12px;position:relative}
-.mouse::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;background:#fff;border-radius:2px;animation:wheel 1.6s infinite}
-@keyframes wheel{to{opacity:0;transform:translateY(12px)}}
+#cover.open {
+    transform: translateY(-100%)
+}
+
+#cover .t1 {
+    font-size: 1.9rem;
+    margin-top: 0px;
+}
+
+.arch {
+    width: min(250px, 60vw);
+    aspect-ratio: 3/4;
+    margin-top: -40px;
+    background: var(--img-pasangan) center/contain no-repeat
+}
+
+#cover h2.names {
+    font-size: 2.3rem
+}
+
+#cover .to {
+    margin: 7px 0 6px
+}
+
+#cover .to b {
+    display: block;
+    font: 500 1.6rem var(--serif);
+    color: #fff
+}
+
+#cover small {
+    display: block;
+    max-width: 60ch;
+    margin: 0 auto 18px;
+    font-size: .7rem
+}
+
+#hero {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+    padding: 0;
+    background: #2a0e33;
+}
+
+.app>section:not(#hero),
+.app>footer {
+    position: relative;
+    z-index: 1
+}
+
+#vid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.heroText {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(.92);
+    transition: opacity 1.6s, transform 1.6s;
+    pointer-events: none
+}
+
+.heroText.in {
+    opacity: 1;
+    transform: none
+}
+
+.heroText h2.n {
+    font-size: 3.4rem;
+    color: #fff;
+    line-height: 1.05;
+    text-shadow: 0 2px 16px rgba(60, 10, 80, .75)
+}
+
+.heroText .amp {
+    display: block;
+    font: italic 2rem var(--serif);
+    color: var(--emas)
+}
+
+.heroText .t {
+    font-size: 1.7rem;
+    text-shadow: 0 2px 12px rgba(60, 10, 80, .8)
+}
+
+.heroText p.d {
+    margin-top: 12px;
+    text-shadow: 0 2px 12px rgba(60, 10, 80, .8)
+}
+
+.mouse {
+    margin-top: 22px;
+    width: 22px;
+    height: 36px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    position: relative
+}
+
+.mouse::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 7px;
+    width: 3px;
+    height: 7px;
+    margin-left: -1.5px;
+    background: #fff;
+    border-radius: 2px;
+    animation: wheel 1.6s infinite
+}
+
+@keyframes wheel {
+    to {
+        opacity: 0;
+        transform: translateY(12px)
+    }
+}
 
 /* ===== AYAT ===== */
-.content-ayat {background:var(--img-bg-overlay) center/cover;}
-.brige {background:var(--img-bg-acara) center/cover; opacity:1}
-.ayat .ir{display:flex;align-items:center;justify-content:center;gap:10px}
-.ayat .ir h2{font-size:3.2rem;color:#fff}
-.ayat .ir img{width:130px;height:130px;object-fit:contain}
-.ayat p.q{margin:-16px auto 12px;max-width:34ch;font-style:italic}
+.content-ayat {
+    background: var(--img-bg-overlay) center/cover;
+}
+
+.brige {
+    background: var(--img-bg-acara) center/cover;
+    opacity: 1
+}
+
+.ayat .ir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
+
+.ayat .ir h2 {
+    font-size: 3.2rem;
+    color: #fff
+}
+
+.ayat .ir img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain
+}
+
+.ayat p.q {
+    margin: -16px auto 12px;
+    max-width: 34ch;
+    font-style: italic
+}
 
 /* ===== MEMPELAI ===== */
-.icon-top{width:110px;height:110px;object-fit:contain;margin-bottom:6px;margin-top: 20px;}
-.salam{max-width:50ch;margin:0 auto 30px;font-size:8pt;}
-.person h2.nick{font-size:3rem;color:var(--emas)}
-.person h3{font:500 1.7rem var(--serif);margin:4px 0}
-.person p{margin-bottom:10px}
-.person .btn{margin-top:4px}
-.orn{width:110px;height:110px;object-fit:contain;margin:20px auto;display:block}
+.icon-top {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 6px;
+    margin-top: 20px;
+}
+
+.salam {
+    max-width: 50ch;
+    margin: 0 auto 30px;
+    font-size: 8pt;
+}
+
+.person h2.nick {
+    font-size: 3rem;
+    color: var(--emas)
+}
+
+.person h3 {
+    font: 500 1.7rem var(--serif);
+    margin: 4px 0
+}
+
+.person p {
+    margin-bottom: 10px
+}
+
+.person .btn {
+    margin-top: 4px
+}
+
+.orn {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block
+}
 
 /* ===== SAVE THE DATE ===== */
-.count{display:flex;justify-content:center;gap:10px;margin:18px 0 22px}
-.count div{width:70px;padding:12px 0;border:1px solid rgba(255,255,255,.4);border-radius:10px}
-.count b{display:block;font:500 1.7rem var(--serif)}.count span{font-size:.72rem}
-.deco{position:absolute;bottom:0;width:120px;pointer-events:none;z-index:0}
-.deco.l{left:-34px;transform:rotate(10deg)}.deco.r{right:-34px;transform:scaleX(-1) rotate(10deg)}
+.count {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 18px 0 22px
+}
+
+.count div {
+    width: 70px;
+    padding: 12px 0;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 10px
+}
+
+.count b {
+    display: block;
+    font: 500 1.7rem var(--serif)
+}
+
+.count span {
+    font-size: .72rem
+}
+
+.deco {
+    position: absolute;
+    bottom: 0;
+    width: 120px;
+    pointer-events: none;
+    z-index: 0
+}
+
+.deco.l {
+    left: -34px;
+    transform: rotate(10deg)
+}
+
+.deco.r {
+    right: -34px;
+    transform: scaleX(-1) rotate(10deg) !important
+}
 
 /* ===== ACARA ===== */
-.acara{padding:0}
-.acara .box{margin:46px 24px;padding:36px 20px;background:rgba(84,26,99,.78);border:1px solid rgba(215,187,131,.5);border-radius:16px}
-.acara h2{font-size:2.4rem}
-.acara hr{width:70px;border:0;border-top:1px solid var(--emas);margin:12px auto}
-.acara .hari{font:500 1.5rem var(--serif)}.acara .tgl{font:500 4rem var(--serif);color:var(--emas);line-height:1}
-.acara h4{font:500 1.4rem var(--serif);color:var(--emas);margin:18px 0 4px}
+.acara {
+    padding: 60px 40px
+}
 
-/* ===== LOVE STORY ===== */
-.story{text-align:left;max-width:360px;margin:26px auto 0;border-left:1px solid var(--emas);padding-left:22px}
-.story div{margin-bottom:26px;position:relative}
-.story div::before{content:"";position:absolute;left:-28px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--emas)}
-.story h3{font:500 1.4rem var(--serif);color:var(--emas)}
+.acara .box {
+    padding: 36px 20px;
+    background: rgba(84, 26, 99, .78);
+    border: 1px solid rgba(215, 187, 131, .5);
+    border-radius: 16px
+}
+
+.acara h2 {
+    font-size: 2.4rem
+}
+
+.acara hr {
+    width: 70px;
+    border: 0;
+    border-top: 1px solid var(--emas);
+    margin: 12px auto
+}
+
+.acara {
+    font: 500 1.5rem var(--serif)
+}
+
+.acara .tgl {
+    font: 500 4rem var(--serif);
+    color: var(--emas);
+    line-height: 1
+}
+
+.acara h4 {
+    font: 500 1.4rem var(--serif);
+    color: var(--emas);
+    margin: 18px 0 4px
+}
+
+.story {
+    --ungu: #6b2a86;
+    --ungu-tua: #4a1a6b;
+    position: relative;
+    padding: 8px 16px 8px 52px;
+    font-family: 'Patrick Hand', 'Segoe UI', sans-serif;
+}
+
+/* ===== L/* Segitiga lancip di pinggir kiri kartu, menunjuk ke hati */
+.story>div::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 8px;
+    /* sejajar dengan titik hati */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 10px 8px 0;
+    /* atas kanan bawah kiri */
+    border-color: transparent #fff transparent transparent;
+}
+
+.story::before {
+    content: "";
+    position: absolute;
+    left: 26px;
+    top: 0;
+    height: var(--end, 0px);
+    /* berhenti di titik terakhir */
+    width: 2px;
+    background: rgba(255, 255, 255, .25);
+}
+
+.story::after {
+    content: "";
+    position: absolute;
+    left: 26px;
+    top: 0;
+    width: 2px;
+    height: var(--p, 0px);
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .6);
+}
+
+/* Kartu */
+.story>div {
+    position: relative;
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 18px 18px;
+    margin-bottom: 22px;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .18));
+
+}
+
+/* Titik hati di garis */
+.story>div::before {
+    content: "♥";
+    position: absolute;
+    left: -38px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #8c7a9e;
+    color: rgba(255, 255, 255, .55);
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    box-shadow: 0 0 0 3px var(--ungu-tua);
+    z-index: 1;
+    transition: background .4s, color .4s;
+}
+
+.story>div.on::before {
+    background: #fff;
+    color: var(--ungu);
+}
+
+/* Titik terakhir: ungu terisi */
+
+
+.story>div:last-child {
+    margin-bottom: 0;
+}
+
+/* Teks */
+.story h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: var(--ungu);
+    letter-spacing: .2px;
+}
+
+.story p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+}
 
 /* ===== GIFT ===== */
-.bank{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;margin:18px 0;padding:22px 18px;border-radius:14px;color:#fff;
-  background:linear-gradient(rgba(140,0,177,.82),rgba(84,26,99,.9)),var(--img-bg-card) center/cover}
-.bank .logo{background:#fff;border-radius:6px;padding:4px 8px;height:40px;width:auto;display:block;margin-bottom:10px}
-.bank small{opacity:.85}.bank b{display:block;font:600 1.3rem var(--serif);letter-spacing:.05em}
-.bank .chip{width:56px;margin-bottom:14px;display:block;margin-left:auto}
-.bank .btn{padding:8px 14px;font-size:.8rem}
-.gift-ic{width:44px;height:44px;margin:0 0 12px auto;display:block}
+.bank {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: left;
+    margin: 18px 0;
+    padding: 22px 18px;
+    border-radius: 14px;
+    color: #fff;
+    background: linear-gradient(rgba(140, 0, 177, .82), rgba(84, 26, 99, .9)), var(--img-bg-card) center/cover
+}
+
+.bank .logo {
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px 8px;
+    height: 40px;
+    width: auto;
+    display: block;
+    margin-bottom: 10px
+}
+
+.bank small {
+    opacity: .85
+}
+
+.bank b {
+    display: block;
+    font: 600 1.3rem var(--serif);
+    letter-spacing: .05em
+}
+
+.bank .chip {
+    width: 56px;
+    margin-bottom: 14px;
+    display: block;
+    margin-left: auto
+}
+
+.bank .btn {
+    padding: 8px 14px;
+    font-size: .8rem
+}
+
+.gift-ic {
+    width: 44px;
+    height: 44px;
+    margin: 0 0 12px auto;
+    display: block
+}
 
 /* ===== WISHES ===== */
-form{display:grid;gap:12px;text-align:left;margin-top:22px}
-label{font-size:.85rem}
-input,textarea,select{width:100%;padding:12px 14px;border:1px solid #c9b6d1;border-radius:10px;font:300 1rem var(--sans);background:#fff;color:#333}
-.att{display:flex;gap:10px}
-.att button{flex:1;padding:11px;border-radius:10px;border:1px solid var(--ungu);background:#fff;color:var(--ungu);font:600 .9rem var(--sans);cursor:pointer}
-.att button.on{background:var(--ungu);color:#fff}
-#guestWrap{display:none}
-.wishes{max-height:340px;overflow:auto;margin-top:24px;text-align:left;display:grid;gap:10px}
-.wish{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 2px 10px rgba(0,0,0,.08);color:#333}
-.wish b{color:var(--ungu)}.wish small{color:var(--ungu2);margin-left:6px}
+form {
+    display: grid;
+    gap: 12px;
+    text-align: left;
+    margin-top: 22px
+}
+
+label {
+    font-size: .85rem
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #c9b6d1;
+    border-radius: 10px;
+    font: 300 1rem var(--sans);
+    background: #fff;
+    color: #333
+}
+
+.att {
+    display: flex;
+    gap: 10px
+}
+
+.att button {
+    flex: 1;
+    padding: 11px;
+    border-radius: 10px;
+    border: 1px solid var(--ungu);
+    background: #fff;
+    color: var(--ungu);
+    font: 600 .9rem var(--sans);
+    cursor: pointer
+}
+
+.att button.on {
+    background: rgb(153, 121, 73);
+    color: #fff !important;
+}
+button[data-v] {
+  display: inline-flex;
+  align-items: center;   /* sejajar vertikal */
+  justify-content: center;
+  gap: 6px;              /* jarak ikon ke teks */
+}
+
+button[data-v] svg {
+  flex-shrink: 0;        /* ikon tidak mengecil */
+}
+#guestWrap {
+    display: none
+}
+
+.wishes {
+    max-height: 340px;
+    overflow: auto;
+    margin-top: 24px;
+    text-align: left;
+    display: grid;
+    gap: 10px
+}
+
+.wish {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    color: #333
+}
+
+.wish b {
+    color: var(--ungu)
+}
+
+.wish small {
+    color: var(--ungu2);
+    margin-left: 6px
+}
 
 /* ===== PENUTUP ===== */
-.thanks h2.big{font-size:2.8rem;color:var(--ungu);margin-top:10px}
-footer{background:var(--ungu);padding:36px 24px 90px;text-align:center;font-size:.8rem;opacity:.95}
+.thanks h2.big {
+    font-size: 2.8rem;
+    color: var(--ungu);
+    margin-top: 10px
+}
+
+footer {
+    background: var(--ungu);
+    padding: 36px 24px 90px;
+    text-align: center;
+    font-size: .8rem;
+    opacity: .95
+}
 
 /* ===== MUSIK ===== */
-#music{position:fixed;right:max(12px,calc(50vw - 228px));bottom:16px;width:46px;height:46px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#00928b,#00625d);color:#fff;font-size:1.2rem;cursor:pointer;z-index:40;display:none}
-#music.spin{animation:spin 8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+#music {
+    position: fixed;
+    right: max(12px, calc(50vw - 228px));
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: linear-gradient(135deg, #00928b, #00625d);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 40;
+    display: none
+}
+
+#music.spin {
+    animation: spin 8s linear infinite
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
 
 /* ===== ANIMASI SCROLL ===== */
-.rv{opacity:0;transition:opacity 1.3s,transform 1.3s}
-.rv-up{transform:translateY(40px)}.rv-z{transform:scale(.92)}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+.rv {
+    opacity: 0;
+    transition: opacity 1.3s, transform 1.3s
+}
+
+.rv-up {
+    transform: translateY(40px)
+}
+
+.rv-z {
+    transform: scale(.92)
+}
+
+.rv.in {
+    opacity: 1;
+    transform: none
+}
+
+@media(prefers-reduced-motion:reduce) {
+    * {
+        animation: none !important;
+        transition: none !important
+    }
+
+    .rv {
+        opacity: 1;
+        transform: none
+    }
+}
+
+/* ============================================================
+   ANIMASI MUNCUL (animasiIn, animasiUp, dst.)
+   - animasiIn dibuat lebih lambat (2s)
+   - Jeda berurutan: elemen 1 muncul dulu, elemen berikutnya
+     menyusul setiap --step detik (default 1.5s).
+   - Jeda hanya berlaku saat MUNCUL (.show), jadi saat
+     menghilang tidak ikut tertunda.
+   - Urutan dihitung dari posisi elemen di dalam induknya
+     (nth-child). Mau atur manual? Tulis di HTML:
+     style="--i:3"  (elemen ini muncul di urutan ke-4)
+   ============================================================ */
+:root {
+    --step: 0.5s;
+    /* jeda antar elemen, ubah sesukamu */
+}
+
+.animasiIn,
+.animasiUp,
+.animasiOut,
+.animasiLeft,
+.animasiDown,
+.animasiRight {
+    --i: 0;
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+/* animasiIn lebih lambat */
+.animasiIn {
+    transition-duration: 1s;
+}
+/* MUNCUL DARI ATAS KE BAWAH */
+.animasiDown {
+    opacity: 0;
+    transform: translateY(-60px);
+}
+
+.animasiDown.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Jeda muncul berdasarkan urutan (hanya saat .show) */
+.animasiIn.show,
+.animasiUp.show,
+.animasiLeft.show,
+.animasiDown.show,
+.animasiRight.show {
+    transition-delay: calc(var(--i) * var(--step));
+}
+
+/* Urutan otomatis: anak ke-1 = 0, ke-2 = 1, dst. */
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(1) { --i: 0; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(2) { --i: 1; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(3) { --i: 2; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(4) { --i: 3; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(5) { --i: 4; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(6) { --i: 5; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(7) { --i: 6; }
+:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(8) { --i: 7; }
+
+/* FADE IN */
+.animasiIn {
+    opacity: 0;
+}
+
+.animasiIn.show {
+    opacity: 1;
+}
+
+/* FADE OUT */
+.animasiOut {
+    opacity: 1;
+}
+
+.animasiOut.show {
+    opacity: 0;
+}
+
+/* MUNCUL DARI KIRI KE KANAN */
+.animasiLeft {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+.animasiLeft.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* MUNCUL DARI KANAN KE KIRI */
+.animasiRight {
+    opacity: 0;
+    transform: translateX(60px);
+}
+
+.animasiRight.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* MUNCUL DARI BAWAH KE ATAS */
+.animasiUp {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.animasiUp.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .animasiIn,
+    .animasiUp,
+    .animasiOut,
+    .animasiLeft,
+    .animasiDown,
+    .animasiRight {
+        transition: none;
+        transition-delay: 0s;
+    }
+}
+
+.bank {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;      /* kedua kolom sama tinggi */
+  gap: 16px;
+  padding: 16px 18px;
+}
+
+/* Kolom kiri: logo di atas, teks di bawahnya */
+.bank > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* logo rata kiri */
+}
+
+.bank .logo {
+  display: block;
+  height: 28px;              /* sesuaikan */
+  width: auto;
+  margin-bottom: 12px;
+}
+
+/* Kolom kanan: chip di atas kanan, tombol di bawah kanan */
+.bank > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* chip mentok atas, tombol mentok bawah */
+  align-items: flex-end;           /* keduanya rata kanan */
+}
+
+.bank .chip {
+  display: block;
+  height: 32px;              /* sesuaikan */
+  width: auto;
+}
+
+.bank .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}

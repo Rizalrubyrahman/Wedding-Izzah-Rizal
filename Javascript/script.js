@@ -120,16 +120,21 @@ $('#cal').onclick = e => {
 
   window.open(u, '_blank', 'noopener');
 };
+const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
+  <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0"/>
+  <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708"/>
+</svg>`;
 
 // Salin rekening dan alamat
 function copy(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
-    const original = btn.textContent;
+ const original = btn.innerHTML;
 
-    btn.textContent = 'Tersalin';
+    btn.innerHTML = `${ICON_CHECK} Tersalin`;
+
 
     setTimeout(() => {
-      btn.textContent = original;
+      btn.innerHTML = original;
     }, 1600);
   });
 }
@@ -244,53 +249,7 @@ $('#form').onsubmit = async e => {
 loadWishes();
 
 /* ====== DOWNLOAD EXCEL ====== */
-$('#dlExcel').onclick = async e => {
-  const btn = e.currentTarget;
-  const key = prompt('Masukkan kunci untuk mengunduh Excel:');
-
-  if (!key) return;
-
-  const old = btn.textContent;
-
-  btn.disabled = true;
-  btn.textContent = 'Mengunduh...';
-
-  try {
-    const r = await fetch(CONFIG.api, {
-      method: 'POST',
-      body: new URLSearchParams({ action: 'download', key })
-    });
-
-    const d = await r.json();
-
-    if (!d.ok) {
-      alert(d.error || 'Gagal mengunduh file.');
-      return;
-    }
-
-    const bytes = Uint8Array.from(atob(d.data), c => c.charCodeAt(0));
-    const blob = new Blob([bytes], {
-      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-
-    a.href = url;
-    a.download = CONFIG.downloadName;
-
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    setTimeout(() => URL.revokeObjectURL(url), 2000);
-  } catch {
-    alert('Gagal mengunduh file.');
-  } finally {
-    btn.disabled = false;
-    btn.textContent = old;
-  }
-};
-
+ 
 /* ====== ANIMASI SCROLL ====== */
 const io = new IntersectionObserver(
   es => es.forEach(x => {
