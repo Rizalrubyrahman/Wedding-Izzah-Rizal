@@ -447,6 +447,14 @@ document.addEventListener('DOMContentLoaded', initAnimation);
       window.addEventListener('load', update);
       update();
     })();
+    /* ===== Nama tamu dari URL: ?tamu=Rizal Ruby Rahman ===== */
+(function () {
+  const nama = new URLSearchParams(window.location.search).get('tamu');
+  if (!nama || !nama.trim()) return;           // tanpa parameter: tetap "Tamu Undangan"
+
+  const el = document.getElementById('guest');
+  if (el) el.textContent = nama.trim();        // textContent aman dari injeksi HTML
+})();
   </script>
 </body>
 
