@@ -12,7 +12,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,500&family=Nunito+Sans:wght@300;400;600&family=Pinyon+Script&display=swap"
     rel="stylesheet">
-
+<link rel="icon" type="image/png"
+          href="bg-pasangan.png" />
   <link rel="stylesheet" href="Css/style.css">
 </head>
 
@@ -91,10 +92,20 @@
         </p>
 
         <div class="person">
+            <div class="foto-wrap mirror">
+    <img class="flower back animasiFx" style="--i:2"
+         src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
+
+    <div class="foto-frame animasiUp" style="--i:0;background-image:var(--img-izzah)"></div>
+
+    <img class="flower front animasiFx" style="--i:2"
+         src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Depan.png" alt="">
+  </div>
+
           <h2 class="nick script animasiUp" style="--i:0">Izzah</h2>
           <h2 class="animasiUp" style="--i:0">Nur Izzah Jundiah</h2>
           <p class="animasiUp" style="font-size: 9pt;--i:0">
-            Putri Ketiga dari<br>Bapak Dedy Sugandy<br>Suprihati Wahyuningsih
+            Putri Ketiga dari<br>Bapak Dedy Sugandy dan Ibu Suprihati Wahyuningsih
           </p>
           <a class="btn animasiUp"
             style="--i:0;font-size: 9pt; padding:4px 17px;color:#fff;border-radius: 50px;background-image: linear-gradient(75deg, #D6B788 0%, #997949 100%);"
@@ -112,10 +123,19 @@
         <div style="height: 20px;">&nbsp;</div>
 
         <div class="person">
+      <div class="foto-wrap">
+  <img class="flower back animasiFx" style="--i:2"
+       src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
+
+  <div class="foto-frame animasiUp" style="--i:0"></div>
+
+  <img class="flower front animasiFx" style="--i:2"
+       src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Depan.png" alt="">
+</div>
           <h2 class="nick script animasiUp" style="--i:0">Rizal</h2>
           <h3 class="animasiUp" style="--i:0">Rizal Ruby Rahman</h3>
           <p class="animasiUp" style="font-size: 9pt;--i:0">
-            Putra Kedua dari<br>Bapak Heriyanto<br>dan Ibu MegaFatmasari
+            Putra Kedua dari<br>Bapak Heriyanto dan Ibu MegaFatmasari
           </p>
         </div>
         <div style="height: 60px;">&nbsp;</div>
@@ -141,9 +161,9 @@
             d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
         </svg> Simpan Tanggal</a>
 
-      <img class="deco l animasiIn" style="--i:0;width:110px"
+      <img class="deco l animasiIn" style="--i:0;width:80px"
         src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
-      <img class="deco r animasiIn" style="top:50px;width:110px;--i:0"
+      <img class="deco r animasiIn" style="top:50px;width:90px;--i:0"
         src="https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Couple-Belakang.png" alt="">
     </section>
 
@@ -405,19 +425,21 @@
   <script src="Javascript/script.js" defer></script>
   <script>
 /* ===== Animasi muncul setiap kali elemen terlihat (berulang) ===== */
+/* ===== Animasi muncul setiap kali elemen terlihat (berulang) ===== */
 function initAnimation() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting && e.intersectionRatio >= 0.2) {
-        e.target.classList.add('show');      // masuk layar: jalankan animasi
+        e.target.classList.add('show');
       } else if (!e.isIntersecting) {
-        e.target.classList.remove('show');   // keluar layar penuh: reset, siap diulang
+        e.target.classList.remove('show');
       }
     });
   }, { threshold: [0, 0.2] });
 
-  document.querySelectorAll('.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown')
-    .forEach(el => obs.observe(el));
+  document.querySelectorAll(
+    '.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight, .animasiFx, .flower'
+  ).forEach(el => obs.observe(el));
 }
 document.addEventListener('DOMContentLoaded', initAnimation);
 

@@ -17,6 +17,9 @@
     --img-bg-acara: url('https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Background.jpeg');
     /* #4 latar kartu rekening */
     --img-bg-card: url('https://the.invisimple.id/wp-content/uploads/2024/10/bg-card-01.jpg');
+    /* #5 foto di bingkai mempelai (ganti dengan file milikmu) */
+    --img-rizal: url('../rizal.png');
+    --img-izzah: url('./izzah.png');
 
     --ungu: #541A63;
     --ungu2: #9138A8;
@@ -347,6 +350,108 @@ select:focus-visible {
     display: block
 }
 
+/* ===== FOTO MEMPELAI + BUNGA =====
+   Meniru contoh Elementor: bunga belakang (kanan atas) di
+   belakang foto, bunga depan (kiri bawah) di depan foto. */
+.foto-wrap {
+    position: relative;
+    width: 210px;
+    height: 280px;
+    margin: 30px auto;
+}
+
+.foto-frame {
+    position: relative;
+    z-index: 2;                           /* di atas bunga belakang */
+    width: 100%;
+    height: 100%;
+    border-radius: 125px;
+    border: 4px double #541A63;
+    box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+    background: #fff var(--img-rizal) center/cover;
+}
+
+.flower {
+    position: absolute;
+    height: auto;
+    max-width: none;
+    pointer-events: none;
+    opacity: 0;                           /* tersembunyi sampai .show */
+}
+
+/* BELAKANG: sama dengan d55bcc8 */
+.flower.back {
+    z-index: 1;
+    width: 150px;
+    top: -15px;
+    right: -45px;
+}
+
+/* DEPAN: sama dengan 40baf10 (bottom 5px + border 4px, left -25px + 4px) */
+.flower.front {
+    z-index: 3;
+    width: 95px;
+    bottom: 9px;
+    left: -21px;
+}
+
+/* Versi cermin (foto Rizal): tambahkan class "mirror" pada .foto-wrap */
+/* Versi cermin (Izzah) */
+.foto-wrap.mirror .flower.back {
+    right: auto;
+    left: -45px;
+    scale: -1 1;               /* aman: zoomIn berputar dari tengah */
+}
+
+.foto-wrap.mirror .flower.front {
+    left: auto;
+    right: -21px;
+    scale: none;               /* flip dipindah ke keyframes */
+}
+
+.foto-wrap.mirror .flower.front.show {
+    animation-name: rotateInDownRightFlip;
+}
+
+@keyframes rotateInDownRightFlip {
+    from {
+        opacity: 0;
+        transform-origin: right bottom;
+        transform: rotate(45deg) translateX(-100%) scaleX(-1);
+    }
+    to {
+        opacity: 1;
+        transform-origin: right bottom;
+        transform: rotate(0deg) translateX(-100%) scaleX(-1);
+    }
+}
+
+/* Animasi bunga (sama seperti animate.css) */
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale3d(.3, .3, .3); }
+    50%  { opacity: 1; }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes rotateInDownRight {
+    from { opacity: 0; transform-origin: right bottom; transform: rotate3d(0, 0, 1, 45deg); }
+    to   { opacity: 1; transform-origin: right bottom; transform: none; }
+}
+
+.flower.back.show {
+    animation: zoomIn 2s ease both;
+    animation-delay: calc(var(--i) * var(--step));
+}
+
+.flower.front.show {
+    animation: rotateInDownRight 2s ease both;
+    animation-delay: calc(var(--i) * var(--step));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flower { opacity: 1; }
+}
+
 /* ===== SAVE THE DATE ===== */
 .count {
     display: flex;
@@ -386,7 +491,7 @@ select:focus-visible {
 
 .deco.r {
     right: -34px;
-    transform: scaleX(-1) rotate(10deg) !important
+    transform: scaleX(-1) rotate(10deg)
 }
 
 /* ===== ACARA ===== */
@@ -428,6 +533,7 @@ select:focus-visible {
     margin: 18px 0 4px
 }
 
+/* ===== LOVE STORY ===== */
 .story {
     --ungu: #6b2a86;
     --ungu-tua: #4a1a6b;
@@ -436,32 +542,31 @@ select:focus-visible {
     font-family: 'Patrick Hand', 'Segoe UI', sans-serif;
 }
 
-/* ===== L/* Segitiga lancip di pinggir kiri kartu, menunjuk ke hati */
+/* Segitiga lancip di pinggir kiri kartu, menunjuk ke hati */
 .story>div::after {
     content: "";
     position: absolute;
     left: -10px;
     top: 8px;
-    /* sejajar dengan titik hati */
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 8px 10px 8px 0;
-    /* atas kanan bawah kiri */
     border-color: transparent #fff transparent transparent;
 }
 
+/* Garis dasar (abu-abu), berhenti di titik terakhir */
 .story::before {
     content: "";
     position: absolute;
     left: 26px;
     top: 0;
     height: var(--end, 0px);
-    /* berhenti di titik terakhir */
     width: 2px;
     background: rgba(255, 255, 255, .25);
 }
 
+/* Garis isi (putih), tingginya diatur JS lewat --p */
 .story::after {
     content: "";
     position: absolute;
@@ -481,7 +586,6 @@ select:focus-visible {
     padding: 16px 18px 18px;
     margin-bottom: 22px;
     filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .18));
-
 }
 
 /* Titik hati di garis */
@@ -507,9 +611,6 @@ select:focus-visible {
     background: #fff;
     color: var(--ungu);
 }
-
-/* Titik terakhir: ungu terisi */
-
 
 .story>div:last-child {
     margin-bottom: 0;
@@ -584,6 +685,48 @@ select:focus-visible {
     display: block
 }
 
+/* Kartu rekening: logo kiri atas, chip kanan atas, tombol kanan bawah */
+.bank {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 18px;
+}
+
+.bank > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bank .logo {
+    display: block;
+    height: 28px;
+    width: auto;
+    margin-bottom: 12px;
+}
+
+.bank > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.bank .chip {
+    display: block;
+    height: 32px;
+    width: auto;
+}
+
+.bank .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
 /* ===== WISHES ===== */
 form {
     display: grid;
@@ -628,16 +771,18 @@ select {
     background: rgb(153, 121, 73);
     color: #fff !important;
 }
+
 button[data-v] {
-  display: inline-flex;
-  align-items: center;   /* sejajar vertikal */
-  justify-content: center;
-  gap: 6px;              /* jarak ikon ke teks */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 button[data-v] svg {
-  flex-shrink: 0;        /* ikon tidak mengecil */
+    flex-shrink: 0;
 }
+
 #guestWrap {
     display: none
 }
@@ -710,7 +855,7 @@ footer {
     }
 }
 
-/* ===== ANIMASI SCROLL ===== */
+/* ===== ANIMASI SCROLL (.rv) ===== */
 .rv {
     opacity: 0;
     transition: opacity 1.3s, transform 1.3s
@@ -742,26 +887,22 @@ footer {
 }
 
 /* ============================================================
-   ANIMASI MUNCUL (animasiIn, animasiUp, dst.)
-   - animasiIn dibuat lebih lambat (2s)
-   - Jeda berurutan: elemen 1 muncul dulu, elemen berikutnya
-     menyusul setiap --step detik (default 1.5s).
-   - Jeda hanya berlaku saat MUNCUL (.show), jadi saat
-     menghilang tidak ikut tertunda.
-   - Urutan dihitung dari posisi elemen di dalam induknya
-     (nth-child). Mau atur manual? Tulis di HTML:
-     style="--i:3"  (elemen ini muncul di urutan ke-4)
+   ANIMASI MUNCUL (animasiIn, Up, Down, Left, Right)
+   - animasiIn lebih lambat (2s)
+   - Jeda berurutan: elemen berikutnya menyusul tiap --step
+   - Jeda hanya berlaku saat MUNCUL (.show)
+   - Urutan otomatis dari posisi anak (nth-child), atau manual
+     lewat style="--i:3"
    ============================================================ */
 :root {
-    --step: 0.5s;
-    /* jeda antar elemen, ubah sesukamu */
+    --step: 0.5s;   /* jeda antar elemen */
 }
 
 .animasiIn,
 .animasiUp,
+.animasiDown,
 .animasiOut,
 .animasiLeft,
-.animasiDown,
 .animasiRight {
     --i: 0;
     transition: opacity .8s ease, transform .8s ease;
@@ -769,36 +910,27 @@ footer {
 
 /* animasiIn lebih lambat */
 .animasiIn {
-    transition-duration: 1s;
-}
-/* MUNCUL DARI ATAS KE BAWAH */
-.animasiDown {
-    opacity: 0;
-    transform: translateY(-60px);
+    transition-duration: 2s;
 }
 
-.animasiDown.show {
-    opacity: 1;
-    transform: translateY(0);
-}
 /* Jeda muncul berdasarkan urutan (hanya saat .show) */
 .animasiIn.show,
 .animasiUp.show,
-.animasiLeft.show,
 .animasiDown.show,
+.animasiLeft.show,
 .animasiRight.show {
     transition-delay: calc(var(--i) * var(--step));
 }
 
 /* Urutan otomatis: anak ke-1 = 0, ke-2 = 1, dst. */
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(1) { --i: 0; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(2) { --i: 1; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(3) { --i: 2; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(4) { --i: 3; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(5) { --i: 4; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(6) { --i: 5; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(7) { --i: 6; }
-:is(.animasiIn, .animasiUp, .animasiLeft, .animasiRight, .animasiDown):nth-child(8) { --i: 7; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(1) { --i: 0; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(2) { --i: 1; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(3) { --i: 2; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(4) { --i: 3; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(5) { --i: 4; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(6) { --i: 5; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(7) { --i: 6; }
+:is(.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight):nth-child(8) { --i: 7; }
 
 /* FADE IN */
 .animasiIn {
@@ -851,59 +983,27 @@ footer {
     transform: translateY(0);
 }
 
+/* MUNCUL DARI ATAS KE BAWAH */
+.animasiDown {
+    opacity: 0;
+    transform: translateY(-60px);
+}
+
+.animasiDown.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
 
     .animasiIn,
     .animasiUp,
+    .animasiDown,
     .animasiOut,
     .animasiLeft,
-    .animasiDown,
     .animasiRight {
         transition: none;
         transition-delay: 0s;
     }
-}
-
-.bank {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;      /* kedua kolom sama tinggi */
-  gap: 16px;
-  padding: 16px 18px;
-}
-
-/* Kolom kiri: logo di atas, teks di bawahnya */
-.bank > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;   /* logo rata kiri */
-}
-
-.bank .logo {
-  display: block;
-  height: 28px;              /* sesuaikan */
-  width: auto;
-  margin-bottom: 12px;
-}
-
-/* Kolom kanan: chip di atas kanan, tombol di bawah kanan */
-.bank > div:last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;  /* chip mentok atas, tombol mentok bawah */
-  align-items: flex-end;           /* keduanya rata kanan */
-}
-
-.bank .chip {
-  display: block;
-  height: 32px;              /* sesuaikan */
-  width: auto;
-}
-
-.bank .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
 }
