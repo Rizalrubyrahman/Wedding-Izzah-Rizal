@@ -449,7 +449,7 @@
   <script src="Javascript/script.js" defer></script>
   <script>
 /* ===== Animasi muncul setiap kali elemen terlihat (berulang) ===== */
-/* ===== Animasi muncul setiap kali elemen terlihat (berulang) ===== */
+/* ===== Animasi muncul saat scroll (berulang) ===== */
 function initAnimation() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -463,10 +463,40 @@ function initAnimation() {
 
   document.querySelectorAll(
     '.animasiIn, .animasiUp, .animasiDown, .animasiLeft, .animasiRight, .animasiFx, .flower'
-  ).forEach(el => obs.observe(el));
+  ).forEach(el => {
+    if (el.closest('.heroText')) return;   // teks hero dikontrol terpisah (lihat bawah)
+    obs.observe(el);
+  });
 }
 document.addEventListener('DOMContentLoaded', initAnimation);
 
+/* ===== Teks /* ===== Teks hero: muncul saat VIDEO SELESAI, hilang saat hero tertutup ===== */
+(function () {
+  const hero = document.getElementById('hero');
+  const vid  = document.getElementById('vid');
+  if (!hero || !vid) return;
+
+  const items = hero.querySelectorAll('.heroText .animasiIn');
+  let state = null;
+  let failed = false;                 // cadangan jika video gagal diputar
+
+  function apply() {
+    const videoDone = vid.ended || failed;                       // video sudah selesai?
+    const inHero    = window.scrollY <= hero.offsetHeight * 0.6; // hero masih terlihat?
+    const visible   = videoDone && inHero;
+    if (visible === state) return;
+    state = visible;
+    items.forEach(el => el.classList.toggle('show', visible));
+  }
+
+  vid.addEventListener('ended', apply);   // selesai: teks muncul
+  vid.addEventListener('play',  apply);   // diputar ulang: teks disembunyikan lagi
+  vid.addEventListener('error', () => { failed = true; apply(); });
+
+  window.addEventListener('scroll', apply, { passive: true });
+  window.addEventListener('resize', apply);
+  apply();
+})();
     /* ===== Garis Love Story merambat ===== */
     (function () {
       const story = document.querySelector('.story');

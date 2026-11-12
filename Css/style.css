@@ -228,11 +228,12 @@ select:focus-visible {
     pointer-events: none
 }
 
+.heroText,
 .heroText.in {
     opacity: 1;
-    transform: none
+    transform: none;
+    transition: none;
 }
-
 .heroText h2.n {
     font-size: 3.4rem;
     color: #fff;
