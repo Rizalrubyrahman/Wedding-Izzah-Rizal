@@ -7,7 +7,17 @@
     font-weight: 400;
     font-style: normal;
 }
-
+.cormorant {
+  font-family: "Cormorant", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.aref-ruqaa-regular {
+  font-family: "Aref Ruqaa", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 :root {
     /* #1 latar cover & latar bagian ayat */
     --img-bg-overlay: url('https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-BG-Overlay.jpeg');
@@ -26,9 +36,10 @@
     --ungu3: #8C00B1;
     --emas: #D7BB83;
     --tombol: #D6B788;
-    --serif: 'Cormorant Infant', Georgia, serif;
+    --serif: 'Cormorant', serif;
     --script: 'Alex Brush', cursive;
     --sans: 'Nunito Sans', system-ui, sans-serif;
+    --aref: 'Aref Ruqaa',serif;
 }
 
 * {
@@ -41,7 +52,7 @@ body {
     font-family: var(--sans);
     font-weight: 300;
     color: #fff;
-    background: #2a0e33;
+    background: var(--img-bg-acara) center center / cover no-repeat fixed;
     line-height: 1.7
 }
 
@@ -115,9 +126,7 @@ select:focus-visible {
     background: linear-gradient(rgba(84, 26, 99, .9), rgba(84, 26, 99, .9)), var(--img-bg-overlay) center/cover
 }
 
-.event-bg {
-    background: linear-gradient(rgba(84, 26, 99, .88), rgba(84, 26, 99, .88)), var(--img-bg-acara) center/cover
-}
+ 
 
 .white-bg {
     background: #faf7fb;
@@ -160,7 +169,8 @@ select:focus-visible {
 }
 
 #cover h2.names {
-    font-size: 2.3rem
+    font-size: 2.9rem;
+    font-family: var(--serif) !important;
 }
 
 #cover .to {
@@ -280,12 +290,9 @@ select:focus-visible {
     background: var(--img-bg-overlay) center/cover;
 }
 
-.brige {
-    background: var(--img-bg-acara) center/cover;
-    opacity: 1
-}
+ 
 
-.ayat .ir {
+.ir {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,11 +300,11 @@ select:focus-visible {
 }
 
 .ayat .ir h2 {
-    font-size: 3.2rem;
+    font-size: 15.2rem;
     color: #fff
 }
 
-.ayat .ir img {
+.ayat  img {
     width: 130px;
     height: 130px;
     object-fit: contain
@@ -306,10 +313,22 @@ select:focus-visible {
 .ayat p.q {
     margin: -16px auto 12px;
     max-width: 34ch;
-    font-style: italic
+    font-style: italic;
+    font-family: var(--aref);
 }
+.keterangan{
+    font-family: var(--aref);
 
-/* ===== MEMPELAI ===== */
+}
+.wishes .wish p {
+    font-family: var(--aref);
+
+}
+.btnNama{
+    font-family: var(--aref);
+
+}
+/* ==.=== MEMPELAI ===== */
 .icon-top {
     width: 110px;
     height: 110px;
@@ -321,9 +340,12 @@ select:focus-visible {
 .salam {
     max-width: 50ch;
     margin: 0 auto 30px;
-    font-size: 8pt;
+    font-size: 9pt;
+    font-family: var(--aref) !important;
 }
-
+.nama{
+    font-family: var(--serif) !important;
+}
 .person h2.nick {
     font-size: 3rem;
     color: var(--emas)
@@ -394,7 +416,75 @@ select:focus-visible {
     bottom: 9px;
     left: -21px;
 }
+/* ===== AYAT: satu layar penuh, dinamis ===== */
+.ayat {
+  min-height: 100vh;               /* cadangan untuk browser lama */
+  min-height: 100svh;              /* tinggi layar yang sebenarnya di HP */
+  padding: 25px;
+  display: flex;
+}
 
+.ayat .content-ayat {
+  flex: 1;                         /* isi seluruh tinggi section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 2svh, 20px);
+  padding: clamp(12px, 3svh, 28px) 16px;
+  border-radius: 10px;
+  min-height: 0;
+}
+
+/* Huruf I & R */
+.ayat .ir {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.ayat .ir h2 {
+  font-size: clamp(2.2rem, 7svh, 3.2rem);
+  color: #fff;
+}
+.ayat .ir .ir-orn { width: 25px; height: auto; margin-top: 30px; }
+.ayat .ir .ir-r   { margin-top: 60px; }
+
+/* Foto: mengisi sisa ruang dan menyusut otomatis */
+.ayat-foto {
+  flex: 1 1 auto;
+  min-height: 120px;               /* batas terkecil supaya foto tidak hilang */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ayat-foto img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Teks ayat */
+.ayat-teks { flex: none; }
+.ayat p.q {
+  margin: 0 auto 8px;
+  max-width: 38ch;
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(9pt, 2.2svh, 10pt);
+  line-height: 1.5;
+}
+.ayat .sumber {
+  color: #fff;
+  font-size: clamp(9pt, 2.2svh, 10pt);
+  font-weight: 700;
+    font-family: var(--aref);
+
+}
 /* Versi cermin (foto Rizal): tambahkan class "mirror" pada .foto-wrap */
 /* Versi cermin (Izzah) */
 .foto-wrap.mirror .flower.back {
@@ -458,6 +548,12 @@ select:focus-visible {
     justify-content: center;
     gap: 10px;
     margin: 18px 0 22px
+}
+.fontSerif{
+    font-family: var(--serif);
+}
+.fontAref{
+    font-family: var(--aref);
 }
 
 .count div {
@@ -629,7 +725,7 @@ select:focus-visible {
     font-size: 13.5px;
     line-height: 1.6;
     color: #444;
-    text-align: justify;
+    text-align: left;
 }
 
 /* ===== GIFT ===== */
