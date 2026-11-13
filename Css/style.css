@@ -2,6 +2,22 @@
    [GANTI GAMBAR / ASET] Semua alamat gambar latar ada di sini.
    Ganti isi url('...') dengan file milikmu (mis. foto/cover-bg.jpg)
    ============================================================ */
+   .great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+   .Halimun {
+  font-family: "Halimun";
+  font-weight: 400;
+  font-style: normal;
+}
+.pinyon-script-regular {
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .alex-brush-regular {
     font-family: "Alex Brush", cursive;
     font-weight: 400;
@@ -30,6 +46,7 @@
     /* #5 foto di bingkai mempelai (ganti dengan file milikmu) */
     --img-rizal: url('../rizal.png');
     --img-izzah: url('./izzah.png');
+    --img-foto: url('./foto.png');
 
     --ungu: #541A63;
     --ungu2: #9138A8;
@@ -37,7 +54,7 @@
     --emas: #D7BB83;
     --tombol: #D6B788;
     --serif: 'Cormorant', serif;
-    --script: 'Alex Brush', cursive;
+    --script: 'Great Vibes', cursive;
     --sans: 'Nunito Sans', system-ui, sans-serif;
     --aref: 'Aref Ruqaa',serif;
 }
@@ -123,7 +140,7 @@ select:focus-visible {
 }
 
 .purple-bg {
-    background: linear-gradient(rgba(84, 26, 99, .9), rgba(84, 26, 99, .9)), var(--img-bg-overlay) center/cover
+    background: linear-gradient(rgba(84, 26, 99, .9), rgba(84, 26, 99, .9));
 }
 
  
@@ -157,7 +174,7 @@ select:focus-visible {
 }
 
 #cover .t1 {
-    font-size: 1.9rem;
+    font-size: 2.4rem;
     margin-top: 0px;
 }
 
@@ -169,7 +186,7 @@ select:focus-visible {
 }
 
 #cover h2.names {
-    font-size: 2.9rem;
+    font-size: 2.4rem;
     font-family: var(--serif) !important;
 }
 
@@ -394,6 +411,15 @@ select:focus-visible {
     background: #fff var(--img-rizal) center/cover;
 }
 
+.foto-frame2 {
+    position: relative;
+    z-index: 2;                           /* di atas bunga belakang */
+    width: 100%;
+    height: 100%;
+    border: 4px double #541A63;
+    box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+    background: #fff var(--img-rizal) center/cover;
+}
 .flower {
     position: absolute;
     height: auto;
@@ -500,9 +526,7 @@ select:focus-visible {
     scale: none;               /* flip dipindah ke keyframes */
 }
 
-.foto-wrap.mirror .flower.front.show {
-    animation-name: rotateInDownRightFlip;
-}
+
 
 @keyframes rotateInDownRightFlip {
     from {

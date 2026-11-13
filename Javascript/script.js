@@ -6,7 +6,7 @@ const CONFIG = {
   // Musik latar
   musicUrl: 'https://the.invisimple.id/wp-content/uploads/2024/10/Howls-Moving-Castle.mp3',
 
-  textDelay: 12000,
+  textDelay: 120,
 
   eventDate: '2026-11-28T11:00:00+07:00',
   eventEnd: '2026-11-28T13:00:00+07:00',
@@ -47,9 +47,9 @@ $('#openBtn').onclick = () => {
   vid.currentTime = 0;
   vid.play().catch(showText);
 
-  audio.play()
-    .then(() => music.classList.add('spin'))
-    .catch(() => {});
+  // audio.play()
+  //   .then(() => music.classList.add('spin'))
+  //   .catch(() => {});
 
   music.style.display = 'block';
 
