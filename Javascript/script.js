@@ -47,9 +47,9 @@ $('#openBtn').onclick = () => {
   vid.currentTime = 0;
   vid.play().catch(showText);
 
-  // audio.play()
-  //   .then(() => music.classList.add('spin'))
-  //   .catch(() => {});
+  audio.play()
+    .then(() => music.classList.add('spin'))
+    .catch(() => {});
 
   music.style.display = 'block';
 
