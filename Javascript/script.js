@@ -3,7 +3,7 @@ const CONFIG = {
   // Video intro
   videoUrl: 'https://the.invisimple.id/wp-content/uploads/2025/05/Midnight-04-Motion-FIX.mp4',
 
-  // Musik latar
+  // Musik latar (lebih aman: unduh lalu pakai file lokal, misal 'musik.mp3')
   musicUrl: 'https://the.invisimple.id/wp-content/uploads/2024/10/Howls-Moving-Castle.mp3',
 
   textDelay: 120,
@@ -35,8 +35,22 @@ const vid = $('#vid');
 const audio = $('#audio');
 const music = $('#music');
 
+// Video: wajib muted + playsinline supaya tidak merebut audio dari musik
+vid.muted = true;
+vid.defaultMuted = true;
+vid.loop = true;
+vid.playsInline = true;
+vid.setAttribute('muted', '');
+vid.setAttribute('playsinline', '');
+vid.setAttribute('webkit-playsinline', '');
+vid.preload = 'auto';
 vid.src = CONFIG.videoUrl;
+
+// Musik: preload agar siap diputar saat tombol diklik
+audio.preload = 'auto';
+audio.loop = true;
 audio.src = CONFIG.musicUrl;
+audio.load();
 
 // Buka undangan
 $('#openBtn').onclick = () => {
@@ -44,17 +58,27 @@ $('#openBtn').onclick = () => {
 
   $('#cover').classList.add('open');
 
-  vid.currentTime = 0;
-  vid.play().catch(showText);
-
+  // Audio dipanggil lebih dulu, langsung di dalam handler klik
   audio.play()
     .then(() => music.classList.add('spin'))
-    .catch(() => {});
+    .catch(err => console.error('Audio gagal play:', err.name, err.message));
+
+  vid.currentTime = 0;
+  vid.play().catch(showText);
 
   music.style.display = 'block';
 
   setTimeout(showText, CONFIG.textDelay);
 };
+
+// Debug sementara: lihat apakah browser menjeda audio
+audio.addEventListener('pause', () => {
+  console.log('audio dipause');
+  music.classList.remove('spin');
+});
+audio.addEventListener('error', () => {
+  console.error('Audio error, kode:', audio.error && audio.error.code);
+});
 
 vid.addEventListener('error', () => {
   setTimeout(showText, 1500);
@@ -77,8 +101,9 @@ function showText() {
 // Tombol musik
 music.onclick = () => {
   if (audio.paused) {
-    audio.play();
-    music.classList.add('spin');
+    audio.play()
+      .then(() => music.classList.add('spin'))
+      .catch(err => console.error('Audio gagal play:', err.name, err.message));
   } else {
     audio.pause();
     music.classList.remove('spin');
@@ -120,6 +145,7 @@ $('#cal').onclick = e => {
 
   window.open(u, '_blank', 'noopener');
 };
+
 const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
   <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0"/>
   <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708"/>
@@ -128,10 +154,9 @@ const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="1
 // Salin rekening dan alamat
 function copy(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
- const original = btn.innerHTML;
+    const original = btn.innerHTML;
 
     btn.innerHTML = `${ICON_CHECK} Tersalin`;
-
 
     setTimeout(() => {
       btn.innerHTML = original;
@@ -249,7 +274,7 @@ $('#form').onsubmit = async e => {
 loadWishes();
 
 /* ====== DOWNLOAD EXCEL ====== */
- 
+
 /* ====== ANIMASI SCROLL ====== */
 const io = new IntersectionObserver(
   es => es.forEach(x => {
