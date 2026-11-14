@@ -38,7 +38,7 @@ const music = $('#music');
 // Video: wajib muted + playsinline supaya tidak merebut audio dari musik
 vid.muted = true;
 vid.defaultMuted = true;
-vid.loop = true;
+vid.loop = false; // video diputar sekali saja
 vid.playsInline = true;
 vid.setAttribute('muted', '');
 vid.setAttribute('playsinline', '');
